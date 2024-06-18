@@ -1,37 +1,6 @@
-address_contract= "0xd9145CCE52D386f254917e481eB44e9943F39138"
+address_contract= "0x24CD8b647421fEb02e9edbeeEd8DAb778b464f32"
 abi = """
 [
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "idAd",
-				"type": "uint256"
-			}
-		],
-		"name": "buyEstate",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "idEstate",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_price",
-				"type": "uint256"
-			}
-		],
-		"name": "createAd",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
 	{
 		"anonymous": false,
 		"inputs": [
@@ -42,13 +11,13 @@ abi = """
 				"type": "address"
 			},
 			{
-				"indexed": true,
+				"indexed": false,
 				"internalType": "uint256",
 				"name": "idEstate",
 				"type": "uint256"
 			},
 			{
-				"indexed": true,
+				"indexed": false,
 				"internalType": "uint256",
 				"name": "idAd",
 				"type": "uint256"
@@ -66,7 +35,7 @@ abi = """
 				"type": "uint256"
 			}
 		],
-		"name": "CreatedAd",
+		"name": "createdAd",
 		"type": "event"
 	},
 	{
@@ -79,7 +48,7 @@ abi = """
 				"type": "address"
 			},
 			{
-				"indexed": true,
+				"indexed": false,
 				"internalType": "uint256",
 				"name": "idEstate",
 				"type": "uint256"
@@ -97,31 +66,8 @@ abi = """
 				"type": "uint8"
 			}
 		],
-		"name": "CreatedEstate",
+		"name": "createdEstate",
 		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_size",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "_addressEstate",
-				"type": "string"
-			},
-			{
-				"internalType": "enum EstateAgency.EstateType",
-				"name": "_esType",
-				"type": "uint8"
-			}
-		],
-		"name": "createEstate",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"anonymous": false,
@@ -139,7 +85,7 @@ abi = """
 				"type": "address"
 			},
 			{
-				"indexed": true,
+				"indexed": false,
 				"internalType": "uint256",
 				"name": "idAd",
 				"type": "uint256"
@@ -169,7 +115,7 @@ abi = """
 				"type": "uint256"
 			}
 		],
-		"name": "EstatePurchased",
+		"name": "estatePurchased",
 		"type": "event"
 	},
 	{
@@ -194,21 +140,8 @@ abi = """
 				"type": "uint256"
 			}
 		],
-		"name": "FundsBack",
+		"name": "fundsBack",
 		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "idAd",
-				"type": "uint256"
-			}
-		],
-		"name": "updateAdStatus",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"anonymous": false,
@@ -220,13 +153,13 @@ abi = """
 				"type": "address"
 			},
 			{
-				"indexed": true,
+				"indexed": false,
 				"internalType": "uint256",
 				"name": "idEstate",
 				"type": "uint256"
 			},
 			{
-				"indexed": true,
+				"indexed": false,
 				"internalType": "uint256",
 				"name": "idAd",
 				"type": "uint256"
@@ -244,7 +177,7 @@ abi = """
 				"type": "uint8"
 			}
 		],
-		"name": "UpdatedAd",
+		"name": "updatedAdStatus",
 		"type": "event"
 	},
 	{
@@ -257,7 +190,7 @@ abi = """
 				"type": "address"
 			},
 			{
-				"indexed": true,
+				"indexed": false,
 				"internalType": "uint256",
 				"name": "idEstate",
 				"type": "uint256"
@@ -275,39 +208,8 @@ abi = """
 				"type": "bool"
 			}
 		],
-		"name": "UpdatedEstate",
+		"name": "updatedEstateStatus",
 		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "idEstate",
-				"type": "uint256"
-			},
-			{
-				"internalType": "bool",
-				"name": "newStatus",
-				"type": "bool"
-			}
-		],
-		"name": "updateEstateStatus",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "withdraw",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"inputs": [
@@ -381,6 +283,60 @@ abi = """
 		"inputs": [
 			{
 				"internalType": "uint256",
+				"name": "idAd",
+				"type": "uint256"
+			}
+		],
+		"name": "buyEstate",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "idEstate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "price",
+				"type": "uint256"
+			}
+		],
+		"name": "createAd",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "size",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "addressEstate",
+				"type": "string"
+			},
+			{
+				"internalType": "enum EstateAgency.EstateType",
+				"name": "esType",
+				"type": "uint8"
+			}
+		],
+		"name": "createEstate",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -423,7 +379,7 @@ abi = """
 	},
 	{
 		"inputs": [],
-		"name": "getAllAds",
+		"name": "getAds",
 		"outputs": [
 			{
 				"components": [
@@ -473,7 +429,20 @@ abi = """
 	},
 	{
 		"inputs": [],
-		"name": "getAllEstates",
+		"name": "getBalance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getEstates",
 		"outputs": [
 			{
 				"components": [
@@ -517,16 +486,52 @@ abi = """
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "getBalance",
-		"outputs": [
+		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "idAd",
+				"type": "uint256"
+			},
+			{
+				"internalType": "enum EstateAgency.AdStatus",
+				"name": "adStatus",
+				"type": "uint8"
+			}
+		],
+		"name": "updateAdStatus",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "idEstate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "isActive",
+				"type": "bool"
+			}
+		],
+		"name": "updateEstateStatus",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amount",
 				"type": "uint256"
 			}
 		],
-		"stateMutability": "view",
+		"name": "withDraw",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]

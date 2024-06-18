@@ -4,7 +4,8 @@
 0x7E5Cbeab3D45F77Aa2Bbaf8ABa704A0291227B82
 0xD9BAf02A36Bd2CE92327369e8758283357395607
 
-geth init --datadir data genesis.json
+geth account new --datadir data - создание аккаунтов
+geth init --datadir data genesis.json - создание генезиса
 
 geth --datadir data --networkid 12345 --unlock 0x24CD8b647421fEb02e9edbeeEd8DAb778b464f32 --allow-insecure-unlock --http --http.corsdomain="*" --http.api web3,eth,debug,personal,net,miner --miner.etherbase 0x24CD8b647421fEb02e9edbeeEd8DAb778b464f32
 
